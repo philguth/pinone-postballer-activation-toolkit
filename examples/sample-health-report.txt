@@ -1,0 +1,8 @@
+Cabinet Activation Report (Sample)
+---------------------------------
+Windows Hardening: TODO
+PinOne Device: TODO
+VPX Inputs: TODO
+DOF Outputs: TODO
+LED Matrix: TODO
+SSF Routing: TODO

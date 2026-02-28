@@ -1,0 +1,17 @@
+{
+  "profileName": "CSD PinOne - 10 Solenoids + SSF 7.1 + LED Matrix",
+  "version": "0.1.0",
+  "controller": {
+    "type": "CSD PinOne",
+    "connection": "USB"
+  },
+  "outputs": [],
+  "audio": {
+    "mode": "SSF",
+    "channels": "7.1"
+  },
+  "lighting": {
+    "hasLedMatrix": true,
+    "hasAddressableLeds": true
+  }
+}
