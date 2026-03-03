@@ -1,0 +1,95 @@
+{
+  "data": {
+    "hibernate": {
+      "shouldBeDisabled": true,
+      "availabilityRaw": [
+        "The following sleep states are available on this system:",
+        "    Standby (S3)",
+        "    Hibernate",
+        "",
+        "The following sleep states are not available on this system:",
+        "    Standby (S1)",
+        "\tThe system firmware does not support this standby state.",
+        "",
+        "    Standby (S2)",
+        "\tThe system firmware does not support this standby state.",
+        "",
+        "    Standby (S0 Low Power Idle)",
+        "\tThe system firmware does not support this standby state.",
+        "",
+        "    Hybrid Sleep",
+        "\tThe hypervisor does not support this standby state.",
+        "",
+        "    Fast Startup",
+        "\tThis action is disabled in the current system policy.",
+        ""
+      ]
+    },
+    "autoLogon": {
+      "DefaultPasswordPresent": false,
+      "DefaultDomainName": ".",
+      "expectedUser": "Pinball",
+      "DefaultUserName": "Phil",
+      "regPath": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+      "AutoAdminLogon": "0"
+    },
+    "frontEndAutostart": {
+      "startupFolderItems": [],
+      "hkcuRunEntryCount": 3,
+      "startupFolder": "C:\\Users\\Phil\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+    },
+    "sleepTimeout": {
+      "desiredMinutes": 0,
+      "subgroupGuid": "238c9fa8-0aad-41ed-83f4-97be242c8f20",
+      "settingGuid": "29f6c1db-86da-48c5-9fdb-f2b67b1f44da"
+    },
+    "cabinetUser": {
+      "expected": "Pinball"
+    },
+    "fastStartup": {
+      "desired": 0,
+      "regPath": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+      "name": "HiberbootEnabled",
+      "current": 0
+    },
+    "activePowerScheme": {
+      "Guid": "381b4222-f694-41f0-9685-ff5bb260df2e",
+      "Name": "Balanced",
+      "IsActive": true
+    },
+    "powerSchemes": [
+      {
+        "Guid": "381b4222-f694-41f0-9685-ff5bb260df2e",
+        "Name": "Balanced",
+        "IsActive": true
+      },
+      {
+        "Guid": "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+        "Name": "High performance",
+        "IsActive": false
+      },
+      {
+        "Guid": "a1841308-3541-4fab-bc81-f71556f20b4a",
+        "Name": "Power saver",
+        "IsActive": false
+      }
+    ],
+    "usbSelectiveSuspend": {
+      "desired": 0,
+      "subgroupGuid": "2a737441-1930-4402-8d77-b2bebba308a3",
+      "settingGuid": "48e6b7a6-50f5-4782-a5d4-53bb8f07e226"
+    }
+  },
+  "status": "FAIL",
+  "notes": [
+    "FAIL: Power plan is 'Balanced'. Recommended: High performance (or Ultimate performance).",
+    "PASS: Fast Startup is disabled.",
+    "INFO: USB selective suspend should be disabled (AC/DC).",
+    "INFO: Sleep timeout should be disabled (AC/DC).",
+    "WARN: Hibernate appears available. Recommended: disable hibernate on cabinets.",
+    "FAIL: Cabinet user missing: Pinball (Settings → Accounts → Other users)",
+    "FAIL: Auto-logon not configured (AutoAdminLogon/DefaultUserName not set).",
+    "INFO: Autostart items found (HKCU Run: 3, Startup folder: 0)."
+  ],
+  "stage": "S1"
+}

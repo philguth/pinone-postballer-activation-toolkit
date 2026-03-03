@@ -1,17 +1,94 @@
 {
-  "profileName": "CSD PinOne - 10 Solenoids + SSF 7.1 + LED Matrix",
+  "profileName": "CSD PinOne - 10 Solenoid - SSF 7.1 - LED Matrix",
   "version": "0.1.0",
+
   "controller": {
     "type": "CSD PinOne",
     "connection": "USB"
   },
-  "outputs": [],
+
+  "outputs": [
+    {
+      "outputNumber": 1,
+      "logicalName": "Solenoid.LeftFlipper",
+      "physicalLabel": "COIL01",
+      "required": true
+    },
+    {
+      "outputNumber": 2,
+      "logicalName": "Solenoid.RightFlipper",
+      "physicalLabel": "COIL02",
+      "required": true
+    },
+    {
+      "outputNumber": 3,
+      "logicalName": "Solenoid.LeftSling",
+      "physicalLabel": "COIL03",
+      "required": true
+    },
+    {
+      "outputNumber": 4,
+      "logicalName": "Solenoid.RightSling",
+      "physicalLabel": "COIL04",
+      "required": true
+    },
+    {
+      "outputNumber": 5,
+      "logicalName": "Solenoid.Bumper1",
+      "physicalLabel": "COIL05",
+      "required": true
+    },
+    {
+      "outputNumber": 6,
+      "logicalName": "Solenoid.Bumper2",
+      "physicalLabel": "COIL06",
+      "required": true
+    },
+    {
+      "outputNumber": 7,
+      "logicalName": "Solenoid.Bumper3",
+      "physicalLabel": "COIL07",
+      "required": true
+    },
+    {
+      "outputNumber": 8,
+      "logicalName": "Solenoid.Knocker",
+      "physicalLabel": "COIL08",
+      "required": false
+    },
+    {
+      "outputNumber": 9,
+      "logicalName": "Motor.Shaker",
+      "physicalLabel": "COIL09",
+      "required": true
+    },
+    {
+      "outputNumber": 10,
+      "logicalName": "Solenoid.Gear",
+      "physicalLabel": "COIL10",
+      "required": false
+    }
+  ],
+
+  "inputs": [
+    { "logicalName": "Input.Start", "required": true },
+    { "logicalName": "Input.Coin", "required": true },
+    { "logicalName": "Input.Exit", "required": true },
+    { "logicalName": "Input.Launch", "required": true },
+    { "logicalName": "Input.LeftFlipper", "required": true },
+    { "logicalName": "Input.RightFlipper", "required": true },
+    { "logicalName": "Input.LeftMagnaSave", "required": true },
+    { "logicalName": "Input.RightMagnaSave", "required": true },
+    { "logicalName": "Axis.Plunger", "required": true }
+  ],
+
   "audio": {
     "mode": "SSF",
     "channels": "7.1"
   },
+
   "lighting": {
-    "hasLedMatrix": true,
-    "hasAddressableLeds": true
+    "ledMatrix": true,
+    "addressableStrips": true
   }
 }
