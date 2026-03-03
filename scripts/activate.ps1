@@ -78,7 +78,7 @@ function Read-JsonFile([string]$path) {
           $start = [Math]::Max(0, $pos - 40)
           $len = [Math]::Min($raw.Length - $start, 80)
           $snippet = $raw.Substring($start, $len) -replace "\r?\n", " "
-          $context = " Context near position $pos: '...$snippet...'"
+          $context = " Context near position ${pos}: '...$snippet...'"
         }
       } catch { }
     }
@@ -197,6 +197,7 @@ function Write-HealthReport {
   foreach ($r in $StageResults) {
     if ($r.status -eq "FAIL") { $overall = "FAIL"; break }
     if ($r.status -eq "WARN" -and $overall -ne "FAIL") { $overall = "WARN" }
+    if ($r.status -eq "SKIPPED" -and $overall -ne "FAIL") { $overall = "WARN" }
   }
 
   $reportObj = [ordered]@{
@@ -250,9 +251,14 @@ function Write-HealthReport {
 # ----------------------------
 Write-Section "PinOne Post-Baller Activation Toolkit"
 
-# Resolve paths from current working directory
-$repoRoot = (Resolve-Path ".").Path
-$ProfilePathResolved = (Resolve-Path $ProfilePath).Path
+# Resolve paths relative to this script (more reliable than current working directory)
+$repoRoot = Split-Path -Parent $PSScriptRoot
+
+if ([System.IO.Path]::IsPathRooted($ProfilePath)) {
+  $ProfilePathResolved = (Resolve-Path $ProfilePath).Path
+} else {
+  $ProfilePathResolved = (Resolve-Path (Join-Path $repoRoot $ProfilePath)).Path
+}
 
 Write-Host "Repo Root   : $repoRoot"
 Write-Host "Profile Path: $ProfilePathResolved"
